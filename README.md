@@ -1,8 +1,8 @@
 # R to Python
 
-### Introduction
+## Introduction
 
-Hi, welcome to the R to Python repository! 
+Hi, welcome to the R to Python repository!
 
 
 
@@ -16,7 +16,7 @@ R has been my main coding language since college, but most jobs are asking for P
 
 So, this is supposed to help me have a better grasp on Python. It's not going to be easy, especially since I've spent nearly a year not coding due to work. But you'll lose skills if you don't continue to practice, so here we go!
 
-### Project Log
+## Project Log
 
 October 17, 2026: Creation of Repo
 
