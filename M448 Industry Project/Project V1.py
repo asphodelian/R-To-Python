@@ -1,6 +1,8 @@
 #############
 # Libraries #
 #############
+import pandas as pd
+# models
 from sklearn.linear_model import ElasticNet #glmnet
 from sklearn.neighbors import KNeighborsClassifier #KNN
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis #LDA
