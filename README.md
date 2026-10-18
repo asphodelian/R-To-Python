@@ -18,5 +18,8 @@ So, this is supposed to help me have a better grasp on Python. It's not going to
 
 ## Project Log
 
-October 17, 2026: Creation of Repo
+October 17, 2026
+
+* Creation of Repo
+* First project folder: Math 448 Course Project
 
