@@ -22,8 +22,10 @@ from sklearn.linear_model import LinearRegression
 #replaces ggplot2
 import plotnine as plot
 import seaborn as sea 
-import matplotlib as plt
+import matplotlib.pyplot as plt
 # replaces MASS
 import statsmodels as stats 
 # replaces stats
 import scipy 
+# resampling
+from sklearn.utils import resample
