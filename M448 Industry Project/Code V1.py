@@ -22,7 +22,7 @@ from sklearn.linear_model import LinearRegression
 #replaces ggplot2
 import plotnine as plot
 import seaborn as sea 
-import matplotlib as plt
+import matplotlib.pyplot as plt
 # replaces MASS
 import statsmodels as stats 
 # replaces stats
@@ -45,5 +45,8 @@ Rnames.info()
 Rnames.describe()
 
 # Downsampling
-sumCall = Rnames.groupby(Rnames["call"]).sum()
-Rnames["call"].value_counts().plot.pie()
+sumCall = Rnames["call"].value_counts()
+color = ["firebrick", "darkgreen"]
+plt.pie(sumCall, labels = sumCall.index, colors= color, autopct='%1.1f%%')
+plt.title("Callback Distribution")
+plt.show()
