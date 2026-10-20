@@ -28,9 +28,9 @@ import statsmodels as stats
 # replaces stats
 import scipy 
 
-#############
-# Data Prep #
-#############
+################
+# Data Explore #
+################
 
 Rnames = pd.read_csv(r"D:\Coding\R Storage\M448\Project Code\Resume Names.csv")
 print("Dimensions of Rnames are", Rnames.shape) # dimensions
@@ -44,9 +44,18 @@ print(Rnames.head())
 Rnames.info()
 Rnames.describe()
 
-# Downsampling
+#############
+# Data Prep #
+#############
+
+# Callback Distribution 
 sumCall = Rnames["call"].value_counts()
 color = ["firebrick", "darkgreen"]
 plt.pie(sumCall, labels = sumCall.index, colors= color, autopct='%1.1f%%')
 plt.title("Callback Distribution")
 plt.show()
+
+noCall = Rnames[Rnames["call"] == "no"]
+yesCall = Rnames[Rnames["call"] == "yes"]
+print("There are", noCall.shape, "no callbacks")
+print("There are", yesCall.shape, "callbacks")
