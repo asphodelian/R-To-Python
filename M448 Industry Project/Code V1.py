@@ -22,6 +22,7 @@ from sklearn.linear_model import LinearRegression
 #replaces ggplot2
 import plotnine as plot
 import seaborn as sea 
+import matplotlib as plt
 # replaces MASS
 import statsmodels as stats 
 # replaces stats
@@ -32,12 +33,18 @@ import scipy
 #############
 
 Rnames = pd.read_csv(r"D:\Coding\R Storage\M448\Project Code\Resume Names.csv")
-print(Rnames.shape) # dimensions
+print("Dimensions of Rnames are", Rnames.shape) # dimensions
 
 # column names
 colnames = Rnames.columns.to_list()
-print(colnames)
+print("The columns of Rnames are", colnames)
 
 # summary stats
+print(Rnames.head())
 Rnames.info()
 Rnames.describe()
+
+# Downsampling
+plt.pie(Rnames["call"], labels = Rnames["call"])
+plt.title("Callback Distribution")
+plt.show
