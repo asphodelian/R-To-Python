@@ -31,5 +31,13 @@ import scipy
 # Data Prep #
 #############
 
-Rnames = pd.read_csv("D:\Coding\R Storage\M448\Project Code\Resume Names.csv")
-print(Rnames.shape)
+Rnames = pd.read_csv(r"D:\Coding\R Storage\M448\Project Code\Resume Names.csv")
+print(Rnames.shape) # dimensions
+
+# column names
+colnames = Rnames.columns.to_list()
+print(colnames)
+
+# summary stats
+Rnames.info()
+Rnames.describe()
