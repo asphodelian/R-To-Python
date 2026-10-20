@@ -46,6 +46,4 @@ Rnames.describe()
 
 # Downsampling
 sumCall = Rnames.groupby(Rnames["call"]).sum()
-plt.pie(sumCall, labels = sumCall.index)
-plt.title("Callback Distribution")
-plt.show
+Rnames["call"].value_counts().plot.pie()
