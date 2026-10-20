@@ -45,6 +45,7 @@ Rnames.info()
 Rnames.describe()
 
 # Downsampling
-plt.pie(Rnames["call"], labels = Rnames["call"])
+sumCall = Rnames.groupby(Rnames["call"]).sum()
+plt.pie(sumCall, labels = sumCall.index)
 plt.title("Callback Distribution")
 plt.show
