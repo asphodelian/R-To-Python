@@ -28,7 +28,8 @@ import statsmodels as stats
 # replaces stats
 import scipy 
 # resampling
-from sklearn.utils import resample
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import fetch_openml
 
 ################
 # Data Explore #
@@ -63,5 +64,4 @@ print("There are", noCall.shape, "no callbacks")
 print("There are", yesCall.shape, "callbacks")
 
 # downsample
-noDown = resample(noCall, replace = True, n_samples = len(yesCall))
-print("There are", noDown.shape, "no callbacks")
+
