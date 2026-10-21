@@ -28,4 +28,5 @@ import statsmodels as stats
 # replaces stats
 import scipy 
 # resampling
-from sklearn.utils import resample
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import fetch_openml
