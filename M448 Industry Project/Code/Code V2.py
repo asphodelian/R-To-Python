@@ -65,7 +65,7 @@ print("Dimensions of new balanced dataset:", newNames.shape)
 newNames.info()
 newNames.describe()
 
-names = newNames.drop(columns = ["rownames", "city"]) # Removing columns
+names = newNames.drop(columns = ["rownames", "name", "city"]) # Removing columns
 train, test = train_test_split(names, test_size = 0.2, random_state = 42) 
 
 ##############
