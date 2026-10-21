@@ -27,6 +27,8 @@ import matplotlib.pyplot as plt
 import statsmodels as stats 
 # replaces stats
 import scipy 
+# resampling
+from sklearn.utils import resample
 
 ################
 # Data Explore #
