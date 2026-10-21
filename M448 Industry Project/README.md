@@ -25,4 +25,5 @@ October 20, 2026
 * Model
 
   * base model
+  * odds ratio
 
