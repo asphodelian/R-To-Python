@@ -72,6 +72,7 @@ train, test = train_test_split(names, test_size = 0.2, random_state = 42)
 # Base Model #
 ##############
 
-
-glmFit = smf.glm(formula = 'call~.', data = train, family = sm.families.Binomial())
+features = [col for col in train.columns if col != 'call']
+formula_str = 'call ~ ' + ' + '.join(features)
+glmFit = smf.glm(formula=formula_str, data=train, family=sm.families.Binomial()).fit()
 print(glmFit.summary())
