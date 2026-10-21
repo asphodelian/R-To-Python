@@ -30,6 +30,8 @@ import scipy
 # resampling
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import fetch_openml
+from imblearn.under_sampling import RandomUnderSampler
+from collections import Counter
 
 ################
 # Data Explore #
@@ -55,13 +57,19 @@ Rnames.describe()
 sumCall = Rnames["call"].value_counts()
 color = ["firebrick", "darkgreen"]
 plt.pie(sumCall, labels = sumCall.index, colors= color, autopct='%1.1f%%')
-plt.title("Callback Distribution")
+plt.title("Callback Distribution: Original Dataset")
 plt.show()
 
-noCall = Rnames[Rnames["call"] == "no"]
-yesCall = Rnames[Rnames["call"] == "yes"]
-print("There are", noCall.shape, "no callbacks")
-print("There are", yesCall.shape, "callbacks")
+y = Rnames["call"]
+x = Rnames.drop("call", axis = 1)
+print(f"Class Distribution: {Counter(y)}")
 
 # downsample
-
+rus = RandomUnderSampler(sampling_strategy = "majority")
+Dno, Dyes = rus.fit_resample(x, y)
+print(f"After downsampling: {Counter(Dyes)}")
+# Callback Distribution: Downsample
+sumD = Dyes.value_counts()
+plt.pie(sumD, labels = sumD.index, colors= color, autopct='%1.1f%%')
+plt.title("Callback Distribution: Downsampled Dataset")
+plt.show()
