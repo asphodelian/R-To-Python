@@ -61,3 +61,7 @@ noCall = Rnames[Rnames["call"] == "no"]
 yesCall = Rnames[Rnames["call"] == "yes"]
 print("There are", noCall.shape, "no callbacks")
 print("There are", yesCall.shape, "callbacks")
+
+# downsample
+noDown = resample(noCall, replace = True, n_samples = len(yesCall))
+print("There are", noDown.shape, "no callbacks")
