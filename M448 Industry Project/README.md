@@ -15,6 +15,9 @@ October 17, 2026
 
 October 20, 2026
 
-* Data exploration
-* Visualization
+* Data 
+
+  * Exploration
+  * Visualization
+  * Downsampling 
 
