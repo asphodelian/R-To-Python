@@ -67,3 +67,11 @@ newNames.describe()
 
 names = newNames.drop(columns = ["rownames", "city"]) # Removing columns
 train, test = train_test_split(names, test_size = 0.2, random_state = 42) 
+
+##############
+# Base Model #
+##############
+
+
+glmFit = smf.glm(formula = 'call~.', data = train, family = sm.families.Binomial())
+print(glmFit.summary())
