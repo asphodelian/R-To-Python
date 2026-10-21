@@ -67,6 +67,7 @@ newNames.describe()
 
 names = newNames.drop(columns = ["rownames", "name", "city"]) # Removing columns
 train, test = train_test_split(names, test_size = 0.2, random_state = 42) 
+#print(names.head())
 
 ##############
 # Base Model #
@@ -75,4 +76,24 @@ train, test = train_test_split(names, test_size = 0.2, random_state = 42)
 features = [col for col in train.columns if col != 'call']
 formula_str = 'call ~ ' + ' + '.join(features)
 glmFit = smf.glm(formula=formula_str, data=train, family=sm.families.Binomial()).fit()
-print(glmFit.summary())
+#print(glmFit.summary())
+
+"""
+Everything is significant, which is strange...
+Doing an odds ratio to see what coefficients matters
+"""
+
+odds_ratios = np.exp(glmFit.params)
+modelMetrics = pd.DataFrame({
+    "Coeff (Log-Odds)": glmFit.params,
+    "Odds Ratio": odds_ratios,
+    "P-value": glmFit.pvalues
+})
+print(modelMetrics)
+
+"""
+The design matrix is rank-deficient, so there's complete separation/perfect multi-collinearity.
+Some odds ratios are infinity in the print also...
+Removal: quality, volunteer, military, email, computer, special, minimum, requirements, reqcomm, reqeduc, reqcomp, reqorg, jobs
+Iffy = industry (same problem I had in R)
+"""
