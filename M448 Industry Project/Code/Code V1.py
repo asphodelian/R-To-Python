@@ -32,6 +32,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.datasets import fetch_openml
 from imblearn.under_sampling import RandomUnderSampler
 from collections import Counter
+from sklearn.utils import resample
 
 ################
 # Data Explore #
@@ -65,7 +66,7 @@ x = Rnames.drop("call", axis = 1)
 print(f"Class Distribution: {Counter(y)}")
 
 # downsample
-rus = RandomUnderSampler(sampling_strategy = "majority")
+rus = RandomUnderSampler(sampling_strategy = "majority", random_state = 42)
 Dno, Dyes = rus.fit_resample(x, y)
 print(f"After downsampling: {Counter(Dyes)}")
 # Callback Distribution: Downsample
@@ -73,3 +74,11 @@ sumD = Dyes.value_counts()
 plt.pie(sumD, labels = sumD.index, colors= color, autopct='%1.1f%%')
 plt.title("Callback Distribution: Downsampled Dataset")
 plt.show()
+
+newNames = pd.concat([Dno, Dyes], axis = 1)
+
+# summary stats
+print("Dimensions of new balanced dataset:", newNames.shape)
+print(newNames.head())
+newNames.info()
+newNames.describe()
