@@ -25,6 +25,8 @@ import seaborn as sea
 import matplotlib.pyplot as plt
 # replaces MASS
 import statsmodels as stats 
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
 # replaces stats
 import scipy 
 # resampling
