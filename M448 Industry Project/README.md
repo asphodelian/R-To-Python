@@ -20,4 +20,9 @@ October 20, 2026
   * Exploration
   * Visualization
   * Downsampling 
+  * Split into Training and Test
+* Libraries tidied up
+* Model
+
+  * base model
 
