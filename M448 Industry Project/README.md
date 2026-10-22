@@ -15,15 +15,28 @@ October 17, 2026
 
 October 20, 2026
 
-* Data 
+* Data
 
   * Exploration
   * Visualization
-  * Downsampling 
+  * Downsampling
   * Split into Training and Test
 * Libraries tidied up
 * Model
 
   * base model
   * odds ratio
+
+October 21, 2026
+
+* Models
+
+  * Figured out best models on Code V2
+  * Cleaned it up for Code V3
+* Folders
+
+  * New folders in Images to further organize
+
+    * Plots for the plots
+    * Models for the summaries of the models
 
