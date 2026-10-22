@@ -132,3 +132,11 @@ features = [col for col in train.columns if col != 'call']
 formula_str = 'call ~ ' + ' + '.join(features)
 glmFit2 = smf.glm(formula = formula_str, data = train, family = sm.families.Binomial()).fit()
 print(glmFit2.summary())
+
+paperInd = resume.drop(columns = ["gender", "ethnicity", "school", "college",
+                               "equal", "wanted", "reqexp"]) # Removing columns
+train, test = train_test_split(paperInd, test_size = 0.2, random_state = 42) 
+features = [col for col in train.columns if col != 'call']
+formula_str = 'call ~ ' + ' + '.join(features)
+glmFit3 = smf.glm(formula = formula_str, data = train, family = sm.families.Binomial()).fit()
+print(glmFit3.summary())
