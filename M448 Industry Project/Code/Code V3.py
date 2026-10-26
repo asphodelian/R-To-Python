@@ -90,3 +90,13 @@ glmFit2 = smf.glm(formula = formula_strP, data = trainP, family = sm.families.Bi
 
 print(glmFit1.summary())
 print(glmFit2.summary())
+
+###################################
+# Quadratic Discriminant Analysis #
+###################################
+
+model = QuadraticDiscriminantAnalysis()
+
+y1 = resume["call"]
+x1 = resume.drop("call", axis = 1)
+model.fit(x1,y1)
