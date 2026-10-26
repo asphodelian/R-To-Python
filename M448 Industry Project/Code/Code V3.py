@@ -101,4 +101,14 @@ y1 = resume["call"]
 x1Raw = resume.drop("call", axis = 1)
 x1 = pd.get_dummies(x1Raw, drop_first = True)
 model.fit(x1,y1)
-print("QDA Model successfully fit!")
+
+y2 = paper["call"]
+x2Raw = paper.drop("call", axis = 1)
+x2 = pd.get_dummies(x2Raw, drop_first = True)
+model.fit(x2,y2)
+
+# model evaluation: k-fold cross validation
+
+cv = RepeatedStratifiedKFold(n_splits = 10, n_repeats = 3, random_state = 1)
+score1 = cross_val_score(model, x1,y1, scoring = 'accuracy', cv = cv, n_jobs = -1)
+print(np.mean(score1))
