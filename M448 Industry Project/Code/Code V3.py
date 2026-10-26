@@ -98,5 +98,7 @@ print(glmFit2.summary())
 model = QuadraticDiscriminantAnalysis()
 
 y1 = resume["call"]
-x1 = resume.drop("call", axis = 1)
+x1Raw = resume.drop("call", axis = 1)
+x1 = pd.get_dummies(x1Raw, drop_first = True)
 model.fit(x1,y1)
+print("QDA Model successfully fit!")
