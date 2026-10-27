@@ -40,3 +40,20 @@ October 21, 2026
     * Plots for the plots
     * Models for the summaries of the models
 
+October 25, 2026
+
+* Models
+
+  * QDA w/ kfold CV
+
+    * regularized 
+    * non-regularized
+* Images
+
+  * QDA results
+
+    * regularized
+    * non-regularized
+
+
+
