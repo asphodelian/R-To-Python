@@ -54,6 +54,12 @@ October 25, 2026
 
     * regularized
     * non-regularized
+* Code
+
+  * exploratory code started
+
+    * libraries called
+    * data called
 
 
 
