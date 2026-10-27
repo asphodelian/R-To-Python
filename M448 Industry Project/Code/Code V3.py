@@ -101,6 +101,8 @@ print(glmFit2.summary(), "\n")
 ###################################
 
 model = QuadraticDiscriminantAnalysis()
+#model = QuadraticDiscriminantAnalysis(reg_param=0.1) 
+# parameter adds small value to diag of coV matrices, prevents collapsing to 0 Var if dummy var is empty in fold
 
 y1 = resume["call"]
 x1Raw = resume.drop("call", axis = 1)
