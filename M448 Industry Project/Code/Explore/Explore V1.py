@@ -25,3 +25,35 @@ print("The columns of Rnames are", colnames, "\n")
 # summary stats
 Rnames.info()
 Rnames.describe()
+
+#################
+# Visualization #
+#################
+
+plot_cols = ["experience", "jobs", "gender",
+             "ethnicity", "quality", "industry",
+             "call"]
+df_plot = Rnames[plot_cols].copy()
+
+le = LabelEncoder()
+categorical_cols = ["gender", "ethnicity", "quality", "industry"]
+
+for col in categorical_cols:
+    df_plot[col] = le.fit_transform(df_plot[col].astype(str))
+
+sns.set_theme(style="ticks")
+ax = sns.pairplot(
+    df_plot,
+    hue="call",
+    palette="Set1",
+    markers=["o", "s"],
+    diag_kind="kde",
+    plot_kws={"alpha": 0.6, "s": 30},  # Adds transparency to handle overlapping points
+)
+
+plt.suptitle("Pair Plot of Key Resume Features & Callbacks", y=1.02, fontsize=14)
+sns.move_legend(
+    ax, "lower center", bbox_to_anchor=(0.5, 1), title=None, frameon=False
+)
+plt.tight_layout()
+plt.show()
