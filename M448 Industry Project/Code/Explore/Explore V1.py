@@ -29,6 +29,7 @@ Rnames.describe()
 # Visualization #
 #################
 
+# Pair Plots #
 plot_cols = ["experience", "jobs", "gender",
              "ethnicity", "quality", "industry",
              "call"]
@@ -45,7 +46,6 @@ ax = sns.pairplot(
     df_plot,
     hue="call",
     palette="Set1",
-    markers=["o", "s"],
     diag_kind="kde",
     plot_kws={"alpha": 0.6, "s": 30},  # Adds transparency to handle overlapping points
 )
@@ -54,5 +54,21 @@ plt.suptitle("Pair Plot of Key Resume Features & Callbacks", y=1.02, fontsize=14
 sns.move_legend(
     ax, "lower center", bbox_to_anchor=(0.5, 1), title=None, frameon=False
 )
+plt.tight_layout()
+plt.show()
+
+# Historgrams #
+plot_cols = ["experience", "jobs", "gender", "ethnicity"]
+plt.figure(figsize=(12, 10))
+
+for i, feature in enumerate(plot_cols):
+    plt.subplot(2, 2, i + 1)
+    
+    sns.histplot(data = Rnames, x = feature, hue = 'call', 
+                 kde = (Rnames[feature].dtype != 'O'),
+                 multiple = "dodge", shrink = 0.8)
+    plt.title(f'{feature.capitalize()} Distribution by Callback')
+    plt.xlabel(feature.capitalize())
+
 plt.tight_layout()
 plt.show()
