@@ -61,5 +61,16 @@ October 25, 2026
     * libraries called
     * data called
 
+October 28, 2026
+
+* Code
+
+  * exploratory code started
+
+    * histogram code edited
+* Images
+
+  * Histogram
+
 
 
