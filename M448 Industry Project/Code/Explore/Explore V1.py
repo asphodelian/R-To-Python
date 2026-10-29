@@ -72,3 +72,12 @@ for i, feature in enumerate(plot_cols):
 
 plt.tight_layout()
 plt.show()
+
+# Correlation Heatmap #
+subset = pd.get_dummies(df_plot, drop_first = True)
+correlation_matrix = subset.corr()
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', 
+            linewidths=0.5, fmt = ".2f", vmin= -1, vmax = 1)
+plt.title("Correlation Heatmap of Key Resume Features & Callbacks")
+plt.show()
