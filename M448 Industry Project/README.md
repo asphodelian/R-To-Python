@@ -73,5 +73,21 @@ October 28, 2026
   * Histogram
   * Correlation Heatmap
 
+October 30, 2026
+
+* Code
+
+  * Duplicated Explore V2
+
+    * Downsampled data
+    * Did the exploratory visualization
+* Images
+
+  * Made subfolders 
+
+    * Original
+    * Downsampled
+  * Moved the images accordingly
+
 
 
