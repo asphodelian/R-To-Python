@@ -91,9 +91,10 @@ October 30, 2026
 
 October 31, 2026
 
-* Code
+* Code V3
 
-  * Added LDA in Code V3
+  * Added LDA 
+  * Started KNN
 * Images
 
   * Added LDA Results
