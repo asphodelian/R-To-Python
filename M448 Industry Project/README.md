@@ -46,7 +46,7 @@ October 25, 2026
 
   * QDA w/ kfold CV
 
-    * regularized 
+    * regularized
     * non-regularized
 * Images
 
@@ -81,15 +81,21 @@ October 30, 2026
 
     * Downsampled data
     * Did the exploratory visualization
-  * Added LDA in Code V3
 * Images
 
-  * Made subfolders 
+  * Made subfolders
 
     * Original
     * Downsampled
   * Moved the images accordingly
+
+October 31, 2026
+
+* Code
+
+  * Added LDA in Code V3
+* Images
+
   * Added LDA Results
-
-
+  * Moved images accordingly
 
