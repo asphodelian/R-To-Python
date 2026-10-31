@@ -49,7 +49,7 @@ newNames = pd.concat([Dno, Dyes], axis = 1)
 plot_cols = ["experience", "jobs", "gender",
              "ethnicity", "quality", "industry",
              "call"]
-df_plot = Rnames[plot_cols].copy()
+df_plot = newNames[plot_cols].copy()
 
 le = LabelEncoder()
 categorical_cols = ["gender", "ethnicity", "quality", "industry"]
@@ -80,8 +80,8 @@ plt.figure(figsize=(12, 10))
 for i, feature in enumerate(plot_cols):
     plt.subplot(2, 2, i + 1)
     
-    sns.histplot(data = Rnames, x = feature, hue = 'call', 
-                 kde = (Rnames[feature].dtype != 'O'),
+    sns.histplot(data = newNames, x = feature, hue = 'call', 
+                 kde = (newNames[feature].dtype != 'O'),
                  multiple = "dodge", shrink = 0.8)
     plt.title(f'{feature.capitalize()} Distribution by Callback')
     plt.xlabel(feature.capitalize())
