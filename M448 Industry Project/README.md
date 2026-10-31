@@ -71,6 +71,7 @@ October 28, 2026
 * Images
 
   * Histogram
+  * Correlation Heatmap
 
 
 
