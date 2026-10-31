@@ -81,6 +81,7 @@ October 30, 2026
 
     * Downsampled data
     * Did the exploratory visualization
+  * Added LDA in Code V3
 * Images
 
   * Made subfolders 
@@ -88,6 +89,7 @@ October 30, 2026
     * Original
     * Downsampled
   * Moved the images accordingly
+  * Added LDA Results
 
 
 
