@@ -2,6 +2,7 @@
 # Libraries #
 #############
 
+from collections import Counter
 from imblearn.under_sampling import RandomUnderSampler # imbalanced dataset
 import itertools # memory-efficient tools for iterators & loops
 import numpy as np
@@ -24,6 +25,21 @@ print("The columns of Rnames are", colnames, "\n")
 # summary stats
 Rnames.info()
 Rnames.describe()
+
+#############
+# Data Prep #
+#############
+
+y = Rnames["call"]
+x = Rnames.drop("call", axis = 1)
+print(f"Class Distribution: {Counter(y)}")
+
+# downsample
+rus = RandomUnderSampler(sampling_strategy = "majority", random_state = 42)
+Dno, Dyes = rus.fit_resample(x, y)
+print(f"After downsampling: {Counter(Dyes)}")
+
+newNames = pd.concat([Dno, Dyes], axis = 1)
 
 #################
 # Visualization #
