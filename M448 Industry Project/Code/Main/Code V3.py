@@ -182,3 +182,10 @@ print(f"Train Accuracy with the Industry variable:{trainR_acc*100:.2f}%")
 print(f"Test Accuracy with the Industry variable:{testR_acc*100:.2f}%\n")
 print(f"Train Accuracy without the Industry variable:{trainP_acc*100:.2f}%")
 print(f"Test Accuracy without the Industry variable:{testP_acc*100:.2f}%\n")
+
+#######################
+# K-Nearest Neighbors #
+#######################
+
+knn1 = KNeighborsClassifier(n_neighbors = 1)
+knn5 = KNeighborsClassifier(n_neighbors = 5)
