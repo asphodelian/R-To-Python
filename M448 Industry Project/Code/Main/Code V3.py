@@ -140,3 +140,45 @@ score41 = cross_val_score(model, x1,y1, scoring = 'accuracy', cv = cv4, n_jobs =
 print("With k=10 and n=5, the model with the industry variable performed a mean accuracy of", np.mean(score41)*100, "%\n")
 score42 = cross_val_score(model, x2,y2, scoring = 'accuracy', cv = cv4, n_jobs = -1)
 print("With k=10 and n=5, the model with no industry variable performed a mean accuracy of", np.mean(score42)*100, "%\n")
+
+################################
+# Linear Discriminant Analysis #
+################################
+
+lda = LinearDiscriminantAnalysis()
+
+# resume train
+y1TrR = trainR["call"]
+x1TrR = trainR.drop(columns = "call")
+x1TrR = pd.get_dummies(x1TrR, drop_first = True)
+# resume test
+y2TR = testR["call"]
+x2TR = testR.drop(columns = "call")
+x2TR = pd.get_dummies(x2TR, drop_first = True)
+# realign
+x1TrR, x2TR = x1TrR.align(x2TR, join = "left", axis = 1, fill_value = 0)
+# LDA: Resume
+lda.fit(x1TrR, y1TrR)
+trainR_acc = lda.score(x1TrR, y1TrR)
+testR_acc = lda.score(x2TR,y2TR)
+
+# paper train
+y1TrP = trainP["call"]
+x1TrP = trainP.drop(columns = "call")
+x1TrP = pd.get_dummies(x1TrP, drop_first = True)
+#paper test
+y2TP = testP["call"]
+x2TP = testP.drop(columns = "call")
+x2TP = pd.get_dummies(x2TP, drop_first = True)
+# realign in case the sets generated diff dummy categories
+x1TrP, x2TP = x1TrP.align(x2TP, join = "left", axis = 1, fill_value = 0)
+# LDA: Paper
+lda.fit(x1TrP, y1TrP)
+trainP_acc = lda.score(x1TrP, y1TrP)
+testP_acc = lda.score(x2TP,y2TP)
+
+# print
+print(f"Train Accuracy with the Industry variable:{trainR_acc*100:.2f}%")
+print(f"Test Accuracy with the Industry variable:{testR_acc*100:.2f}%\n")
+print(f"Train Accuracy without the Industry variable:{trainP_acc*100:.2f}%")
+print(f"Test Accuracy without the Industry variable:{testP_acc*100:.2f}%\n")
