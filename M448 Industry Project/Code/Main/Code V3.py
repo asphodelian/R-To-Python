@@ -194,13 +194,19 @@ scaler = StandardScaler()
 # Resume scale
 x1_Tr_scale = scaler.fit_transform(x1TrR)
 x2_TR_scale = scaler.transform(x2TR)
-
+# Resume, K=1
 knn1.fit(x1_Tr_scale, y1TrR)
-trainR_acc = knn1.score(x1_Tr_scale, y1TrR)
-testR_acc = knn1.score(x2_TR_scale, y2TR)
+trainR_acc1 = knn1.score(x1_Tr_scale, y1TrR)
+testR_acc1 = knn1.score(x2_TR_scale, y2TR)
+# Resume, K=5
+knn5.fit(x1_Tr_scale, y1TrR)
+trainR_acc5 = knn5.score(x1_Tr_scale, y1TrR)
+testR_acc5 = knn5.score(x2_TR_scale, y2TR)
 
-print(f"KNN (K=1) Train Accuracy : {trainR_acc*100:.2f}%")
-print(f"KNN (K=1) Test Accuracy : {testR_acc*100:.2f}%")
+print(f"KNN (K=1) Train Accuracy : {trainR_acc1*100:.2f}%")
+print(f"KNN (K=1) Test Accuracy : {testR_acc1*100:.2f}%")
+print(f"KNN (K=5) Train Accuracy : {trainR_acc5*100:.2f}%")
+print(f"KNN (K=5) Test Accuracy : {testR_acc5*100:.2f}%")
 
 # # paper train
 # y1TrP = trainP["call"]
