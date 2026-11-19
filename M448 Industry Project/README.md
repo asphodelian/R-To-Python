@@ -93,10 +93,20 @@ October 31, 2026
 
 * Code V3
 
-  * Added LDA 
+  * Added LDA
   * Started KNN
 * Images
 
   * Added LDA Results
   * Moved images accordingly
+
+November 19, 2026
+
+* Code
+
+  * Added StandardScaler to libraries \& Code V3
+  * Did KNN (K=1,5) for resume dataset in Code V3
+* Images
+
+  * Added KNN Results
 
