@@ -189,3 +189,26 @@ print(f"Test Accuracy without the Industry variable:{testP_acc*100:.2f}%\n")
 
 knn1 = KNeighborsClassifier(n_neighbors = 1)
 knn5 = KNeighborsClassifier(n_neighbors = 5)
+scaler = StandardScaler() 
+
+# Resume scale
+x1_Tr_scale = scaler.fit_transform(x1TrR)
+x2_TR_scale = scaler.transform(x2TR)
+
+knn1.fit(x1_Tr_scale, y1TrR)
+trainR_acc = knn1.score(x1_Tr_scale, y1TrR)
+testR_acc = knn1.score(x2_TR_scale, y2TR)
+
+print(f"KNN (K=1) Train Accuracy : {trainR_acc*100:.2f}%")
+print(f"KNN (K=1) Test Accuracy : {testR_acc*100:.2f}%")
+
+# # paper train
+# y1TrP = trainP["call"]
+# x1TrP = trainP.drop(columns = "call")
+# x1TrP = pd.get_dummies(x1TrP, drop_first = True)
+# #paper test
+# y2TP = testP["call"]
+# x2TP = testP.drop(columns = "call")
+# x2TP = pd.get_dummies(x2TP, drop_first = True)
+# # realign in case the sets generated diff dummy categories
+# x1TrP, x2TP = x1TrP.align(x2TP, join = "left", axis = 1, fill_value = 0)
