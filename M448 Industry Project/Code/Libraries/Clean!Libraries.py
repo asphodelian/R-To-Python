@@ -20,6 +20,7 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf # specify stat models using R-style formula strings a& pandas dfs
 
 # Scikit-learning Models & tools
+from sklearn import linear_model
 from sklearn.discriminant_analysis import (LinearDiscriminantAnalysis, #LDA
                                            QuadraticDiscriminantAnalysis #QDA
                                            )
@@ -28,6 +29,7 @@ from sklearn.feature_selection import (SequentialFeatureSelector, RFE)
 from sklearn.linear_model import (ElasticNet, #glmnet 
                                   LinearRegression, LogisticRegression)
 from sklearn.neighbors import KNeighborsClassifier #KNN
+from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import (cross_val_score, RepeatedStratifiedKFold, train_test_split)
 from sklearn.preprocessing import StandardScaler # for KNN, since it's distance-based
 
