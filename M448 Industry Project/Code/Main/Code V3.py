@@ -214,12 +214,18 @@ print(f"KNN (K=5) Test Accuracy : {testR_acc5*100:.2f}%")
 
 # Paper scale
 x1_TrP_scale = scaler.fit_transform(x1TrP)
-# y1TrP = trainP["call"]
-# x1TrP = trainP.drop(columns = "call")
-# x1TrP = pd.get_dummies(x1TrP, drop_first = True)
-# #paper test
-# y2TP = testP["call"]
-# x2TP = testP.drop(columns = "call")
-# x2TP = pd.get_dummies(x2TP, drop_first = True)
-# # realign in case the sets generated diff dummy categories
-# x1TrP, x2TP = x1TrP.align(x2TP, join = "left", axis = 1, fill_value = 0)
+x2_TP_scale = scaler.fit_transform(x2TP)
+# Paper, K=1
+knn1.fit(x1_TrP_scale, y1TrP)
+trainP_acc1 = knn1.score(x1_TrP_scale, y1TrP)
+testP_acc1 = knn1.score(x2_TP_scale, y2TP)
+# Paper, K=5
+knn5.fit(x1_TrP_scale, y1TrP)
+trainP_acc5 = knn5.score(x1_TrP_scale, y1TrP)
+testP_acc5 = knn5.score(x2_TP_scale, y2TP) 
+
+print("\nKNN results, Paper:")
+print(f"KNN (K=1) Train Accuracy : {trainP_acc1*100:.2f}%")
+print(f"KNN (K=1) Test Accuracy : {testP_acc1*100:.2f}%")
+print(f"KNN (K=5) Train Accuracy : {trainP_acc5*100:.2f}%")
+print(f"KNN (K=5) Test Accuracy : {testP_acc5*100:.2f}%")
