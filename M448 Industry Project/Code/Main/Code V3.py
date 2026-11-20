@@ -121,6 +121,7 @@ cv2 = RepeatedStratifiedKFold(n_splits = 5, n_repeats = 5, random_state = 1)
 cv3 = RepeatedStratifiedKFold(n_splits = 10, n_repeats = 3, random_state = 1)
 cv4 = RepeatedStratifiedKFold(n_splits = 10, n_repeats = 5, random_state = 1)
 
+print(f"QDA Results:")
 score11 = cross_val_score(model, x1,y1, scoring = 'accuracy', cv = cv1, n_jobs = -1)
 print("With k=5 and n=3, the model with the industry variable performed a mean accuracy of", np.mean(score11)*100, "%\n")
 score12 = cross_val_score(model, x2,y2, scoring = 'accuracy', cv = cv1, n_jobs = -1)
@@ -178,8 +179,10 @@ trainP_acc = lda.score(x1TrP, y1TrP)
 testP_acc = lda.score(x2TP,y2TP)
 
 # print
+print(f"LDA Results: Resume")
 print(f"Train Accuracy with the Industry variable:{trainR_acc*100:.2f}%")
 print(f"Test Accuracy with the Industry variable:{testR_acc*100:.2f}%\n")
+print(f"LDA Results: Paper")
 print(f"Train Accuracy without the Industry variable:{trainP_acc*100:.2f}%")
 print(f"Test Accuracy without the Industry variable:{testP_acc*100:.2f}%\n")
 
@@ -192,23 +195,25 @@ knn5 = KNeighborsClassifier(n_neighbors = 5)
 scaler = StandardScaler() 
 
 # Resume scale
-x1_Tr_scale = scaler.fit_transform(x1TrR)
+x1_TrR_scale = scaler.fit_transform(x1TrR)
 x2_TR_scale = scaler.transform(x2TR)
 # Resume, K=1
-knn1.fit(x1_Tr_scale, y1TrR)
-trainR_acc1 = knn1.score(x1_Tr_scale, y1TrR)
+knn1.fit(x1_TrR_scale, y1TrR)
+trainR_acc1 = knn1.score(x1_TrR_scale, y1TrR)
 testR_acc1 = knn1.score(x2_TR_scale, y2TR)
 # Resume, K=5
-knn5.fit(x1_Tr_scale, y1TrR)
-trainR_acc5 = knn5.score(x1_Tr_scale, y1TrR)
+knn5.fit(x1_TrR_scale, y1TrR)
+trainR_acc5 = knn5.score(x1_TrR_scale, y1TrR)
 testR_acc5 = knn5.score(x2_TR_scale, y2TR)
 
+print("KNN results, Resume:")
 print(f"KNN (K=1) Train Accuracy : {trainR_acc1*100:.2f}%")
 print(f"KNN (K=1) Test Accuracy : {testR_acc1*100:.2f}%")
 print(f"KNN (K=5) Train Accuracy : {trainR_acc5*100:.2f}%")
 print(f"KNN (K=5) Test Accuracy : {testR_acc5*100:.2f}%")
 
-# # paper train
+# Paper scale
+x1_TrP_scale = scaler.fit_transform(x1TrP)
 # y1TrP = trainP["call"]
 # x1TrP = trainP.drop(columns = "call")
 # x1TrP = pd.get_dummies(x1TrP, drop_first = True)
