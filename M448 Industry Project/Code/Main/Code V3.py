@@ -229,3 +229,7 @@ print(f"KNN (K=1) Train Accuracy : {trainP_acc1*100:.2f}%")
 print(f"KNN (K=1) Test Accuracy : {testP_acc1*100:.2f}%")
 print(f"KNN (K=5) Train Accuracy : {trainP_acc5*100:.2f}%")
 print(f"KNN (K=5) Test Accuracy : {testP_acc5*100:.2f}%")
+
+#########################
+# Best Subset Selection #
+#########################
