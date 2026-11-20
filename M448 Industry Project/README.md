@@ -108,5 +108,5 @@ November 19, 2026
   * Did KNN (K=1,5) for resume dataset in Code V3
 * Images
 
-  * Added KNN Results
+  * Added KNN Results for Resume, Paper
 
